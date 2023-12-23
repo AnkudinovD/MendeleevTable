@@ -10,12 +10,12 @@
         android:id="@+id/header_one"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="ПРИЛОЖЕНИЕ\nТАБЛИЦА Д.И. МЕНДЕЛЕЕВА"
-        android:layout_marginTop="30dp"
+        android:textColor="#177C3A"
         android:textSize="21sp"
         android:textStyle="bold"
-        android:textColor="#177C3A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,12 +24,12 @@
         android:id="@+id/header_two"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
         android:gravity="top"
         android:text="Задайте пределы требуемого атомного веса элементов:"
         android:textColor="#4C9063"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_one" />
@@ -47,36 +47,36 @@
             android:id="@+id/minIn"
             android:layout_width="170dp"
             android:layout_height="50dp"
-            android:hint="Минимальный вес"
-            android:textColor="#177C3A"
-            android:textColorHint="#4C9063"
-            android:background="#D6EFDF"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            android:ems="10"
-            android:inputType="number"
             android:layout_marginTop="14dp"
             android:layout_marginEnd="10dp"
+            android:background="#D6EFDF"
+            android:ems="10"
+            android:hint="Минимальный вес"
+            android:inputType="number"
             android:paddingStart="14dp"
+            android:textColor="#177C3A"
+            android:textColorHint="#4C9063"
+            android:textSize="16sp"
+            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/maxIn"
             android:layout_width="170dp"
             android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:background="#D6EFDF"
+            android:ems="10"
             android:hint="Максимальный вес"
+            android:inputType="number"
+            android:paddingStart="14dp"
             android:textColor="#177C3A"
             android:textColorHint="#4C9063"
-            android:background="#D6EFDF"
             android:textSize="16sp"
             android:textStyle="italic"
-            android:ems="10"
-            android:inputType="number"
-            android:layout_marginTop="14dp"
-            android:paddingStart="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent" />
     </LinearLayout>
 
     <Button
@@ -84,42 +84,96 @@
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="14dp"
-        android:text="ПОИСК"
         android:backgroundTint="#177C3A"
+        android:text="ПОИСК"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearIn" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button">
+
+        <EditText
+            android:id="@+id/yearMin"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="#D5EEDE"
+            android:ems="10"
+            android:hint="Минимальный год"
+            android:inputType="number"
+            android:paddingStart="14dp"
+            android:textColor="#177C3A"
+            android:textColorHint="#177C3A"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/yearMax"
+            android:layout_width="170dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            android:layout_weight="1"
+            android:background="#E5EEE8"
+            android:ems="10"
+            android:hint="Максимальный год"
+            android:inputType="number"
+            android:paddingStart="14dp"
+            android:textColor="#177C3A"
+            android:textColorHint="#177C3A"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#177C3A"
+        android:text="ПОИСК"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
     <TextView
         android:id="@+id/header_three"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:gravity="top"
         android:text="Результаты поиска:"
         android:textColor="#4C9063"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:layout_marginTop="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSearch" />
 
     <TextView
         android:id="@+id/output"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:padding="10dp"
+        android:layout_width="345dp"
+        android:layout_height="276dp"
+        android:layout_marginTop="14dp"
+        android:background="#E6EFE9"
         android:gravity="top"
         android:hint="Вывод найденных элементов"
-        android:textSize="17sp"
-        android:textStyle="italic"
+        android:padding="10dp"
         android:textColor="#177C3A"
         android:textColorHint="#4C9063"
-        android:background="#E6EFE9"
-        android:layout_marginTop="14dp"
+        android:textSize="17sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_three"/>
+        app:layout_constraintTop_toBottomOf="@+id/header_three" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

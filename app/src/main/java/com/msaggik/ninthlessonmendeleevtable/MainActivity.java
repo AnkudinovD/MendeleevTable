@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -19,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
     private List<Element> elements; // контейнер (коллекция) для элементов периодической системы Менделеева
 
     private EditText minIn, maxIn;
+    private EditText minYear, maxYear;
     private Button button;
     private TextView output;
+    private Button buttonFilterYear;
 
     private float minMass, maxMass; // буферные поля
 
@@ -35,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
         // связь полей представления с разметкой по id
         minIn = findViewById(R.id.minIn);
         maxIn = findViewById(R.id.maxIn);
-        button = findViewById(R.id.button);
+        minYear = findViewById(R.id.yearMin);
+        maxYear = findViewById(R.id.yearMax);
+        button = findViewById(R.id.buttonSearch);
+        buttonFilterYear = findViewById(R.id.buttonSearch);
         output = findViewById(R.id.output);
 
         // обработаем нажатие кнопки
         button.setOnClickListener(listener);
+        buttonFilterYear.setOnClickListener(listenButton);
     }
 
     // создадим слушатель кнопки и с помощью анонимного класса переопределим метод onClick(View view)
@@ -62,6 +67,30 @@ public class MainActivity extends AppCompatActivity {
 
             } else {
                 output.setText("Нужно заполнить оба поля");
+            }
+        }
+    };
+
+    private View.OnClickListener listenButton = new View.OnClickListener(){
+        @Override
+        public void onClick(View view){
+            if (minYear.getText() != null && maxYear.getText() != null) {
+                output.setText("");
+                minMass = Float.parseFloat(minYear.getText().toString());
+                maxMass = Float.parseFloat(maxYear.getText().toString());
+
+                if(maxMass > minMass) {
+
+                    Stream<Element> stream = elements.stream();
+                    stream.filter(s -> s.getOpeningYear() >= minMass && s.getOpeningYear() <= maxMass)
+                            .forEach(a -> output.append(a.getSymbol() + " " + a.getMass() + "\n"));
+                }
+                else {
+                    output.setText("Данные введены неккоректно");
+                }
+            }
+            else{
+                output.setText("Заполнить два поля");
             }
         }
     };
