@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         maxIn = findViewById(R.id.maxIn);
         minYear = findViewById(R.id.yearMin);
         maxYear = findViewById(R.id.yearMax);
-        button = findViewById(R.id.buttonSearch);
+        button = findViewById(R.id.button);
         buttonFilterYear = findViewById(R.id.buttonSearch);
         output = findViewById(R.id.output);
 
